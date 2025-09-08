@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart'; // Asegúrate que la ruta sea correcta
 import '../../../../core/theme/text_styles.dart'; // Asegúrate que la ruta sea correcta
+import '../../../historical_places/presentation/pages/places_list_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -147,26 +148,42 @@ class HomePage extends StatelessWidget {
         itemBuilder: (context, index) {
           final title = categories.keys.elementAt(index);
           final imageUrl = categories.values.elementAt(index);
-          return Container(
-            width: 150,
-            margin: const EdgeInsets.only(right: 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                        image: NetworkImage(imageUrl),
-                        fit: BoxFit.cover,
+
+          // AÑADIMOS EL GESTUREDETECTOR PARA LA NAVEGACIÓN
+          return GestureDetector(
+            onTap: () {
+              // Verificamos si es la categoría correcta para navegar
+              if (title == 'Lugares Históricos') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PlacesListPage(),
+                  ),
+                );
+              }
+              // Aquí podríamos añadir más `if` para otras categorías en el futuro
+            },
+            child: Container(
+              width: 150,
+              margin: const EdgeInsets.only(right: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          image: NetworkImage(imageUrl),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                Text(title, style: TextStyles.bodyLgMedium),
-              ],
+                  const SizedBox(height: 8),
+                  Text(title, style: TextStyles.bodyLgMedium),
+                ],
+              ),
             ),
           );
         },
