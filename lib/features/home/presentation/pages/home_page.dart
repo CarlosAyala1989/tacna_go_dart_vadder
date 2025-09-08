@@ -3,6 +3,7 @@ import '../../../../core/theme/app_colors.dart'; // Asegúrate que la ruta sea c
 import '../../../../core/theme/text_styles.dart'; // Asegúrate que la ruta sea correcta
 import '../../../historical_places/presentation/pages/places_list_page.dart';
 import '../../../events/presentation/pages/events_page.dart';
+import '../../../map/presentation/pages/map_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -243,7 +244,10 @@ class HomePage extends StatelessWidget {
           _BottomNavItem(
             icon: Icons.map_outlined,
             onPressed: () {
-              // TODO: Navegar a la pantalla de mapa
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MapPage()),
+              );
             },
           ),
           _BottomNavItem(
