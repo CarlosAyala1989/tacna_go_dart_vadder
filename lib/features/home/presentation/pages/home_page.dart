@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart'; // Asegúrate que la ruta sea correcta
 import '../../../../core/theme/text_styles.dart'; // Asegúrate que la ruta sea correcta
 import '../../../historical_places/presentation/pages/places_list_page.dart';
+import '../../../events/presentation/pages/events_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: AppColors.background,
       appBar: _buildAppBar(),
       body: _buildBody(),
-      bottomNavigationBar: _buildBottomNavBar(),
+      bottomNavigationBar: _buildBottomNavBar(context),
     );
   }
 
@@ -161,7 +162,12 @@ class HomePage extends StatelessWidget {
                   ),
                 );
               }
-              // Aquí podríamos añadir más `if` para otras categorías en el futuro
+              if (title == 'Efemérides') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const EventsPage()),
+                );
+              }
             },
             child: Container(
               width: 150,
@@ -217,20 +223,45 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildBottomNavBar() {
+  Widget _buildBottomNavBar(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       decoration: const BoxDecoration(
         color: AppColors.background,
         border: Border(top: BorderSide(color: AppColors.surface, width: 1.5)),
       ),
-      child: const Row(
+      // Quitamos el 'const' porque ahora los hijos tienen funciones
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _BottomNavItem(icon: Icons.home, isActive: true),
-          _BottomNavItem(icon: Icons.map_outlined),
-          _BottomNavItem(icon: Icons.calendar_today_outlined),
-          _BottomNavItem(icon: Icons.search),
+          _BottomNavItem(
+            icon: Icons.home,
+            isActive: true,
+            onPressed:
+                () {}, // El botón de Home no hace nada porque ya estamos ahí
+          ),
+          _BottomNavItem(
+            icon: Icons.map_outlined,
+            onPressed: () {
+              // TODO: Navegar a la pantalla de mapa
+            },
+          ),
+          _BottomNavItem(
+            icon: Icons.calendar_today_outlined,
+            // AQUÍ VA LA LÓGICA DE NAVEGACIÓN
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const EventsPage()),
+              );
+            },
+          ),
+          _BottomNavItem(
+            icon: Icons.search,
+            onPressed: () {
+              // TODO: Navegar a la pantalla de búsqueda
+            },
+          ),
         ],
       ),
     );
@@ -241,8 +272,13 @@ class HomePage extends StatelessWidget {
 class _BottomNavItem extends StatelessWidget {
   final IconData icon;
   final bool isActive;
+  final VoidCallback onPressed; // <-- 1. AÑADE ESTA LÍNEA
 
-  const _BottomNavItem({required this.icon, this.isActive = false});
+  const _BottomNavItem({
+    required this.icon,
+    this.isActive = false,
+    required this.onPressed, // <-- 2. AÑADE ESTO AL CONSTRUCTOR
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -252,9 +288,7 @@ class _BottomNavItem extends StatelessWidget {
         color: isActive ? AppColors.textPrimary : AppColors.textSecondary,
         size: 28,
       ),
-      onPressed: () {
-        // TODO: Lógica de navegación
-      },
+      onPressed: onPressed, // <-- 3. USA EL PARÁMETRO AQUÍ
     );
   }
 }
