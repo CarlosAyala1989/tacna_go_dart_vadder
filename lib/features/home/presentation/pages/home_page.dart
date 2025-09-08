@@ -4,6 +4,7 @@ import '../../../../core/theme/text_styles.dart'; // Asegúrate que la ruta sea 
 import '../../../historical_places/presentation/pages/places_list_page.dart';
 import '../../../events/presentation/pages/events_page.dart';
 import '../../../map/presentation/pages/map_page.dart';
+import '../../../search/presentation/pages/search_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -263,7 +264,10 @@ class HomePage extends StatelessWidget {
           _BottomNavItem(
             icon: Icons.search,
             onPressed: () {
-              // TODO: Navegar a la pantalla de búsqueda
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchPage()),
+              );
             },
           ),
         ],
