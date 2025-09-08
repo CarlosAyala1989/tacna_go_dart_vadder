@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/place_list_item.dart'; // Importamos el widget que acabamos de crear
+import 'place_detail_page.dart';
 
 class PlacesListPage extends StatelessWidget {
   const PlacesListPage({super.key});
@@ -49,8 +50,12 @@ class PlacesListPage extends StatelessWidget {
             subtitle: place['subtitle']!,
             imageUrl: place['imageUrl']!,
             onTap: () {
-              // TODO: Navegar a la pantalla de detalle de este lugar
-              print('Tocado: ${place['title']}');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PlaceDetailPage(place: place),
+                ),
+              );
             },
           );
         },
