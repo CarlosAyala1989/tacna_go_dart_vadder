@@ -55,7 +55,7 @@ class PlaceDetailPage extends StatelessWidget {
                   const SizedBox(height: 16),
                   Text(
                     // Usamos una descripción más larga de placeholder
-                    'The Parabolic Arch of Tacna is a monument erected in honor of the heroes of the War of the Pacific. It is located in the Civic Square of Tacna and is one of the most emblematic symbols of the city. The arch is made of reinforced concrete and has a parabolic shape, hence its name.',
+                    'Lorem ipsum dolor sit amet. Et eligendi iusto non perferendis impedit rem ullam magnam in minima corrupti! Est reiciendis explicabo et modi nemo id numquam fuga id nobis saepe aut dolores dolorem. Est doloremque molestiae aut omnis mollitia non dolores explicabo et omnis omnis sit esse beatae a temporibus dolorem sed cumque omnis.',
                     style: TextStyles.bodyLg,
                   ),
                 ],
