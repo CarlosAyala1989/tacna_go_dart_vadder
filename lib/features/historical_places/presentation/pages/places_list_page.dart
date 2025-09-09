@@ -10,27 +10,31 @@ class PlacesListPage extends StatelessWidget {
     {
       "title": "Arco Parabólico",
       "subtitle": "Monumento a los héroes de la Guerra del Pacífico",
-      "imageUrl": "https://picsum.photos/seed/place1/200/200",
+      "imageUrl":
+          "https://upload.wikimedia.org/wikipedia/commons/d/d6/5TR7A64LSBHVLI2RHAUGT2ZNI4.jpg",
     },
     {
       "title": "Museo Ferroviario Nacional",
       "subtitle": "Museo que exhibe la historia de Tacna",
-      "imageUrl": "https://picsum.photos/seed/place2/200/200",
+      "imageUrl": "https://peru.viajandox.com/uploads/attractive_381.jpg",
     },
     {
       "title": "Catedral de Tacna",
       "subtitle": "Iglesia histórica con arquitectura neorrenacentista",
-      "imageUrl": "https://picsum.photos/seed/place3/200/200",
+      "imageUrl":
+          "https://images.mnstatic.com/6b/38/6b38bdbddcf7add2457b15413113b54a.jpg",
     },
     {
-      "title": "Plaza de Armas",
+      "title": "Paseo Civico",
       "subtitle": "Plaza principal con monumentos y áreas verdes",
-      "imageUrl": "https://picsum.photos/seed/place4/200/200",
+      "imageUrl":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_3rGYj00IjLnYZl_i6hzUznb0ect9sWpzSw&s",
     },
     {
       "title": "Campo de la Alianza",
       "subtitle": "Sitio histórico de la batalla de Alto de la Alianza",
-      "imageUrl": "https://picsum.photos/seed/place5/200/200",
+      "imageUrl":
+          "https://www.ytuqueplanes.com/imagenes/fotos/festividades/Aniversario-de-la-Batalla-del-Campo-de-la-Alianza-400x400.jpg",
     },
   ];
 

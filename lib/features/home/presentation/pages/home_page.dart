@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: const NetworkImage(
-            'https://picsum.photos/seed/tacna1/800/600',
+            'https://blog.redbus.pe/wp-content/uploads/2018/08/Tacna-Peru-3.jpg',
           ), // Imagen de placeholder
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.4),
@@ -110,7 +110,7 @@ class HomePage extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: const NetworkImage(
-            'https://picsum.photos/seed/tacna2/800/600',
+            'https://peru.info/archivos/publicacion/178-imagen-930171942022.jpg',
           ), // Imagen de placeholder
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.4),
@@ -137,10 +137,14 @@ class HomePage extends StatelessWidget {
 
   Widget _buildCategoriesList() {
     final categories = {
-      'Lugares Históricos': 'https://picsum.photos/seed/cat1/200/200',
-      'Efemérides': 'https://picsum.photos/seed/cat2/200/200',
-      'Gastronomía': 'https://picsum.photos/seed/cat3/200/200',
-      'Personajes Ilustres': 'https://picsum.photos/seed/cat4/200/200',
+      'Lugares Históricos':
+          'https://www.infobae.com/resizer/v2/2LT5EG5WAJANFC7MPWTTORFCAM.jpg?auth=f86df2bfac62f1384d87a52541c8468f1b98e58bac69ab4ee350c7293adc2771&smart=true&width=1200&height=1200&quality=85',
+      'Efemérides':
+          'https://www.cronicaviva.com.pe/wp-content/uploads/2015/05/batalla-alianza-1.jpg',
+      'Gastronomía':
+          'https://portal.andina.pe/EDPfotografia3/Thumbnail/2023/09/13/000994052W.webp',
+      'Personajes Ilustres':
+          'https://www.tacnaperu.net/images/jorge-basadre-grohmann.jpg',
     };
 
     return SizedBox(

@@ -49,7 +49,8 @@ class _MapPageState extends State<MapPage> {
               _selectedPlace = {
                 "title": "Arco Parabólico",
                 "subtitle": "Monumento a los héroes de la Guerra del Pacífico",
-                "imageUrl": "https://picsum.photos/seed/place1/200/200",
+                "imageUrl":
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d6/5TR7A64LSBHVLI2RHAUGT2ZNI4.jpg",
               };
             });
           },
@@ -69,7 +70,8 @@ class _MapPageState extends State<MapPage> {
                 "title": "Catedral de Tacna",
                 "subtitle":
                     "Iglesia histórica con arquitectura neorrenacentista",
-                "imageUrl": "https://picsum.photos/seed/place3/200/200",
+                "imageUrl":
+                    "https://images.mnstatic.com/6b/38/6b38bdbddcf7add2457b15413113b54a.jpg",
               };
             });
           },

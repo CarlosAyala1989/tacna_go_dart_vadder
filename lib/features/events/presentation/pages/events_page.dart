@@ -17,8 +17,8 @@ class _EventsPageState extends State<EventsPage> {
 
   // Datos de ejemplo. En el futuro, esto vendría de un BLoC.
   final Map<DateTime, List<String>> _events = {
-    DateTime.utc(2024, 5, 5): ['Día de la Madre'],
-    DateTime.utc(2024, 5, 26): ['Batalla del Alto de la Alianza - 1880'],
+    DateTime.utc(2025, 5, 5): ['Día de la Madre'],
+    DateTime.utc(2025, 5, 26): ['Batalla del Alto de la Alianza - 1880'],
   };
 
   @override

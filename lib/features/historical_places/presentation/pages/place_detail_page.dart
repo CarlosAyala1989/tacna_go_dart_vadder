@@ -69,7 +69,7 @@ class PlaceDetailPage extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16.0),
                 child: Image.network(
-                  'https://picsum.photos/seed/map_detail/800/400',
+                  'https://upload.wikimedia.org/wikipedia/commons/d/d6/5TR7A64LSBHVLI2RHAUGT2ZNI4.jpg',
                   height: 180,
                   width: double.infinity,
                   fit: BoxFit.cover,
