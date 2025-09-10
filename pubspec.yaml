@@ -1,5 +1,5 @@
-name: prueba3
-description: "A new Flutter project."
+name: tacna_go
+description: "Tacna Go - Tu aplicación de navegación local"
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -27,6 +27,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -44,3 +45,23 @@ flutter:
           weight: 700
         - asset: assets/fonts/PlusJakartaSans-ExtraBold.ttf
           weight: 800
+
+# Configuración de iconos de la aplicación
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  remove_alpha_ios: true # Importante para App Store
+  web:
+    generate: true
+    image_path: "assets/images/app_icon.png"
+    background_color: "#2196F3"
+    theme_color: "#2196F3"
+  windows:
+    generate: true
+    image_path: "assets/images/app_icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/app_icon.png"

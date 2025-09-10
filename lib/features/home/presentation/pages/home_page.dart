@@ -3,6 +3,7 @@ import '../../../../core/theme/app_colors.dart'; // Asegúrate que la ruta sea c
 import '../../../../core/theme/text_styles.dart'; // Asegúrate que la ruta sea correcta
 import '../../../historical_places/presentation/pages/places_list_page.dart';
 import '../../../events/presentation/pages/events_page.dart';
+import '../../../gastronomy/presentation/pages/gastronomy_list_page.dart';
 import '../../../map/presentation/pages/map_page.dart';
 import '../../../search/presentation/pages/search_page.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
@@ -183,6 +184,14 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const EventsPage()),
+                );
+              }
+              if (title == 'Gastronomía') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const GastronomyListPage(),
+                  ),
                 );
               }
             },
