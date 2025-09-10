@@ -4,18 +4,17 @@ import 'app_colors.dart';
 class TextStyles {
   static const String _fontFamily = 'PlusJakartaSans';
 
+  // Estilos base (sin color, se obtiene del tema)
   static const TextStyle heading1 = TextStyle(
     fontFamily: _fontFamily,
     fontSize: 28,
     fontWeight: FontWeight.bold,
-    color: AppColors.textPrimary,
   );
 
   static const TextStyle heading2 = TextStyle(
     fontFamily: _fontFamily,
     fontSize: 22,
     fontWeight: FontWeight.bold,
-    color: AppColors.textPrimary,
     letterSpacing: -0.015,
   );
 
@@ -23,7 +22,6 @@ class TextStyles {
     fontFamily: _fontFamily,
     fontSize: 18,
     fontWeight: FontWeight.bold,
-    color: AppColors.textPrimary,
     letterSpacing: -0.015,
   );
 
@@ -31,21 +29,18 @@ class TextStyles {
     fontFamily: _fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.normal,
-    color: AppColors.textPrimary,
   );
 
   static const TextStyle bodyLgMedium = TextStyle(
     fontFamily: _fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: AppColors.textPrimary,
   );
 
   static const TextStyle bodySm = TextStyle(
     fontFamily: _fontFamily,
     fontSize: 14,
     fontWeight: FontWeight.normal,
-    color: AppColors.textSecondary,
   );
 
   static const TextStyle button = TextStyle(
@@ -59,7 +54,35 @@ class TextStyles {
     fontFamily: _fontFamily,
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    color: AppColors.textSecondary,
     letterSpacing: 0.015,
   );
+
+  // Métodos para obtener estilos con colores dinámicos
+  static TextStyle getHeading1(BuildContext context) {
+    return heading1.copyWith(color: AppColors.getTextPrimary(context));
+  }
+
+  static TextStyle getHeading2(BuildContext context) {
+    return heading2.copyWith(color: AppColors.getTextPrimary(context));
+  }
+
+  static TextStyle getHeading3(BuildContext context) {
+    return heading3.copyWith(color: AppColors.getTextPrimary(context));
+  }
+
+  static TextStyle getBodyLg(BuildContext context) {
+    return bodyLg.copyWith(color: AppColors.getTextPrimary(context));
+  }
+
+  static TextStyle getBodyLgMedium(BuildContext context) {
+    return bodyLgMedium.copyWith(color: AppColors.getTextPrimary(context));
+  }
+
+  static TextStyle getBodySm(BuildContext context) {
+    return bodySm.copyWith(color: AppColors.getTextSecondary(context));
+  }
+
+  static TextStyle getCaption(BuildContext context) {
+    return caption.copyWith(color: AppColors.getTextSecondary(context));
+  }
 }

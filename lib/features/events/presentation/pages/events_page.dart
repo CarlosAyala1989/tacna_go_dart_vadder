@@ -74,18 +74,38 @@ class _EventsPageState extends State<EventsPage> {
           titleCentered: true,
           titleTextStyle: TextStyles.bodyLg.copyWith(
             fontWeight: FontWeight.bold,
+            color: AppColors.getTextPrimary(context),
           ),
         ),
         calendarStyle: CalendarStyle(
+          // Colores dinámicos según el tema
+          outsideDaysVisible: false,
+          weekendTextStyle: TextStyle(color: AppColors.getTextPrimary(context)),
+          defaultTextStyle: TextStyle(color: AppColors.getTextPrimary(context)),
           todayDecoration: BoxDecoration(
-            color: AppColors.surface.withOpacity(0.5),
+            color: AppColors.primary.withOpacity(0.3),
             shape: BoxShape.circle,
+          ),
+          todayTextStyle: TextStyle(
+            color: AppColors.getTextPrimary(context),
+            fontWeight: FontWeight.bold,
           ),
           selectedDecoration: const BoxDecoration(
             color: AppColors.primary,
             shape: BoxShape.circle,
           ),
+          selectedTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+          // Configuración para días con eventos
+          markerDecoration: BoxDecoration(
+            color: AppColors.primary.withOpacity(0.7),
+            shape: BoxShape.circle,
+          ),
         ),
+        // Configuración para mostrar eventos como marcadores
+        eventLoader: _getEventsForDay,
       ),
     );
   }

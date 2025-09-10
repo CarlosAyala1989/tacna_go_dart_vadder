@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/text_styles.dart';
+import '../../../../core/theme/app_colors.dart';
 import '../widgets/search_result_item.dart';
 
 // Datos de ejemplo que simulan toda la información de la app
@@ -73,7 +74,10 @@ class _SearchPageState extends State<SearchPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Buscar')),
+      backgroundColor: AppColors.getBackground(context),
+      appBar: AppBar(
+        title: Text('Buscar', style: TextStyles.getHeading3(context)),
+      ),
       body: Column(
         children: [
           Padding(
@@ -101,7 +105,10 @@ class _SearchPageState extends State<SearchPage> {
                         horizontal: 16.0,
                         vertical: 8.0,
                       ),
-                      child: Text(entry.key, style: TextStyles.heading3),
+                      child: Text(
+                        entry.key,
+                        style: TextStyles.getHeading3(context),
+                      ),
                     ),
                     ...entry.value.map((item) {
                       return SearchResultItem(

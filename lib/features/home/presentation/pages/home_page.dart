@@ -5,6 +5,7 @@ import '../../../historical_places/presentation/pages/places_list_page.dart';
 import '../../../events/presentation/pages/events_page.dart';
 import '../../../map/presentation/pages/map_page.dart';
 import '../../../search/presentation/pages/search_page.dart';
+import '../../../settings/presentation/pages/settings_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,29 +13,33 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Usamos el color de fondo de nuestro tema
-      backgroundColor: AppColors.background,
-      appBar: _buildAppBar(),
-      body: _buildBody(),
+      // Usamos el color de fondo dinámico según el tema
+      backgroundColor: AppColors.getBackground(context),
+      appBar: _buildAppBar(context),
+      body: _buildBody(context),
       bottomNavigationBar: _buildBottomNavBar(context),
     );
   }
 
-  PreferredSizeWidget _buildAppBar() {
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
     return AppBar(
       // El AppBar ya toma los colores y estilos de nuestro AppTheme
       backgroundColor: Colors.transparent,
       elevation: 0,
-      title: const Text('Tacna', style: TextStyles.heading3),
+      title: Text('Tacna', style: TextStyles.getHeading3(context)),
       centerTitle: true,
       actions: [
         IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.settings_outlined,
-            color: AppColors.textPrimary,
+            color: AppColors.getTextPrimary(context),
           ),
           onPressed: () {
-            // TODO: Navegar a la pantalla de configuración
+            // --- NAVEGACIÓN A LA PÁGINA DE CONFIGURACIÓN AQUÍ ---
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SettingsPage()),
+            );
           },
         ),
         const SizedBox(width: 8),
@@ -42,7 +47,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -50,17 +55,17 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 8),
-            _buildSearchBar(),
+            _buildSearchBar(context),
             const SizedBox(height: 24),
-            _buildHeroBanner(),
+            _buildHeroBanner(context),
             const SizedBox(height: 24),
-            _buildDidYouKnowCard(),
+            _buildDidYouKnowCard(context),
             const SizedBox(height: 24),
-            const Text('Categorías', style: TextStyles.heading3),
+            Text('Categorías', style: TextStyles.getHeading3(context)),
             const SizedBox(height: 16),
-            _buildCategoriesList(),
+            _buildCategoriesList(context),
             const SizedBox(height: 24),
-            _buildMapPreview(),
+            _buildMapPreview(context),
             const SizedBox(height: 24),
           ],
         ),
@@ -68,17 +73,20 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildSearchBar() {
+  Widget _buildSearchBar(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
         // El estilo base viene del AppTheme, solo añadimos el icono
         hintText: 'Buscar en Tacna...',
-        prefixIcon: const Icon(Icons.search, color: AppColors.textSecondary),
+        prefixIcon: Icon(
+          Icons.search,
+          color: AppColors.getTextSecondary(context),
+        ),
       ),
     );
   }
 
-  Widget _buildHeroBanner() {
+  Widget _buildHeroBanner(BuildContext context) {
     return Container(
       height: 220,
       padding: const EdgeInsets.all(16.0),
@@ -95,14 +103,17 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      child: const Align(
+      child: Align(
         alignment: Alignment.bottomLeft,
-        child: Text('Descubre la Heroica Ciudad', style: TextStyles.heading1),
+        child: Text(
+          'Descubre la Heroica Ciudad',
+          style: TextStyles.heading1.copyWith(color: AppColors.white),
+        ),
       ),
     );
   }
 
-  Widget _buildDidYouKnowCard() {
+  Widget _buildDidYouKnowCard(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -135,7 +146,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoriesList() {
+  Widget _buildCategoriesList(BuildContext context) {
     final categories = {
       'Lugares Históricos':
           'https://www.infobae.com/resizer/v2/2LT5EG5WAJANFC7MPWTTORFCAM.jpg?auth=f86df2bfac62f1384d87a52541c8468f1b98e58bac69ab4ee350c7293adc2771&smart=true&width=1200&height=1200&quality=85',
@@ -193,7 +204,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(title, style: TextStyles.bodyLgMedium),
+                  Text(title, style: TextStyles.getBodyLgMedium(context)),
                 ],
               ),
             ),
@@ -203,7 +214,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildMapPreview() {
+  Widget _buildMapPreview(BuildContext context) {
     return Column(
       children: [
         Container(
@@ -232,9 +243,11 @@ class HomePage extends StatelessWidget {
   Widget _buildBottomNavBar(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-      decoration: const BoxDecoration(
-        color: AppColors.background,
-        border: Border(top: BorderSide(color: AppColors.surface, width: 1.5)),
+      decoration: BoxDecoration(
+        color: AppColors.getBackground(context),
+        border: Border(
+          top: BorderSide(color: AppColors.getSurface(context), width: 1.5),
+        ),
       ),
       // Quitamos el 'const' porque ahora los hijos tienen funciones
       child: Row(
@@ -297,10 +310,12 @@ class _BottomNavItem extends StatelessWidget {
     return IconButton(
       icon: Icon(
         icon,
-        color: isActive ? AppColors.textPrimary : AppColors.textSecondary,
+        color: isActive
+            ? AppColors.getTextPrimary(context)
+            : AppColors.getTextSecondary(context),
         size: 28,
       ),
-      onPressed: onPressed, // <-- 3. USA EL PARÁMETRO AQUÍ
+      onPressed: onPressed,
     );
   }
 }

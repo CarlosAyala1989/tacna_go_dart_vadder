@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "153927774812",
+    "project_id": "tacna-turismo-d54f3",
+    "storage_bucket": "tacna-turismo-d54f3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153927774812:android:bf66790435e84151ae6c99",
+        "android_client_info": {
+          "package_name": "com.example.tacna_go_dart_vadder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153927774812-u4855illu1rcr27tu20udd735ucqq9f2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtBxsFCRQ-mSd7CXx0Z54fsA_svkX1XjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153927774812-u4855illu1rcr27tu20udd735ucqq9f2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

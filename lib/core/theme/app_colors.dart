@@ -17,4 +17,42 @@ class AppColors {
   static const Color textPrimaryGreen = Color(0xFF121717);
   static const Color textSecondaryGreen = Color(0xFF638383);
   static const Color surfaceGreen = Color(0xFFEBF0F0);
+
+  // Colores para tema oscuro
+  static const Color darkBackground = Color(0xFF121212);
+  static const Color darkSurface = Color(0xFF1E1E1E);
+  static const Color darkTextPrimary = Color(0xFFFFFFFF);
+  static const Color darkTextSecondary = Color(0xFFB3B3B3);
+  static const Color darkDragHandle = Color(0xFF2C2C2C);
+
+  // Métodos para obtener colores dinámicos según el tema
+  static Color getBackground(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? darkBackground
+        : background;
+  }
+
+  static Color getSurface(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? darkSurface
+        : surface;
+  }
+
+  static Color getTextPrimary(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? darkTextPrimary
+        : textPrimary;
+  }
+
+  static Color getTextSecondary(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? darkTextSecondary
+        : textSecondary;
+  }
+
+  static Color getDragHandle(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? darkDragHandle
+        : dragHandle;
+  }
 }
