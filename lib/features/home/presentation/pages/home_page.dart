@@ -4,6 +4,7 @@ import '../../../../core/theme/text_styles.dart'; // Asegúrate que la ruta sea 
 import '../../../historical_places/presentation/pages/places_list_page.dart';
 import '../../../events/presentation/pages/events_page.dart';
 import '../../../gastronomy/presentation/pages/gastronomy_list_page.dart';
+import '../../../ilustrious_people/presentation/pages/ilustrious_people_list_page.dart';
 import '../../../map/presentation/pages/map_page.dart';
 import '../../../search/presentation/pages/search_page.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
@@ -75,13 +76,23 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildSearchBar(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        // El estilo base viene del AppTheme, solo añadimos el icono
-        hintText: 'Buscar en Tacna...',
-        prefixIcon: Icon(
-          Icons.search,
-          color: AppColors.getTextSecondary(context),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SearchPage()),
+        );
+      },
+      child: AbsorbPointer(
+        child: TextFormField(
+          decoration: InputDecoration(
+            // El estilo base viene del AppTheme, solo añadimos el icono
+            hintText: 'Buscar en Tacna...',
+            prefixIcon: Icon(
+              Icons.search,
+              color: AppColors.getTextSecondary(context),
+            ),
+          ),
         ),
       ),
     );
@@ -191,6 +202,14 @@ class HomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const GastronomyListPage(),
+                  ),
+                );
+              }
+              if (title == 'Personajes Ilustres') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const IlustriousPeopleListPage(),
                   ),
                 );
               }
